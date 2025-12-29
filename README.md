@@ -1,4 +1,31 @@
-# Getting Started with Create React App
+# Currency Converter - React
+
+A simple and functional currency converter built with **React**. The application allows users to convert PLN (Polish Złoty) into popular currencies like EUR, USD, GBP, and CHF based on current exchange rates.
+
+
+### Key Features:
+* Real-time calculation of PLN to selected currencies.
+* Dynamic result formatting.
+* Fully responsive design (**RWD**) optimized for mobile devices.
+* Clean and organized code following the **BEM methodology**.
+
+
+### Technologies Used:
+* **React.js** (Functional Components & Hooks)
+* **JavaScript** (ES6+)
+* **CSS3** (Flexbox, Grid, Media Queries)
+* **BEM** Methodology
+
+
+##  What's inside?
+![Animation](https://github.com/user-attachments/assets/4c182e39-84c7-4566-8ffe-23c94c45f7f3)
+
+
+## Demo
+https://szymonjaworski.github.io/currency-converter-react/
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
