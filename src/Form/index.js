@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./style.css";
+import { StyledForm, LabelText, Field, Button, Result } from "./styled";
 
 const Form = () => {
     const [amount, setAmount] = useState("");
@@ -25,14 +25,13 @@ const Form = () => {
     };
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
+        <StyledForm onSubmit={onFormSubmit}>
             <p>
                 <label>
-                    <span className="form__labelText">Kwota(PLN)*</span>
-                    <input
+                    <LabelText>Kwota(PLN)*</LabelText>
+                    <Field
                         value={amount}
                         onChange={({ target }) => setAmount(target.value)}
-                        className="form__field"
                         type="number"
                         placeholder="Wprowadź kwotę"
                         required
@@ -42,9 +41,9 @@ const Form = () => {
             </p>
             <p>
                 <label>
-                    <span className="form__labelText">Wybierz walutę</span>
-                    <select
-                        className="form__field"
+                    <LabelText>Wybierz walutę</LabelText>
+                    <Field
+                        as="select"
                         value={currency}
                         onChange={({ target }) => setCurrency(target.value)}
                     >
@@ -52,22 +51,21 @@ const Form = () => {
                         <option value="USD">USD - USA</option>
                         <option value="GBP">GBP - W.Brytania</option>
                         <option value="CHF">CHF - Szwajcaria</option>
-                    </select>
+                    </Field>
                 </label>
             </p>
             <p>
-                <button className="form__button">Sprawdź kurs wymiany</button>
+                <Button>Sprawdź kurs wymiany</Button>
             </p>
-            { }
-            <p className="form__score">
+            <Result>
                 {result && (
                     <>
                         {result.sourceAmount.toFixed(2)} PLN = {" "}
                         <strong>{result.targetAmount.toFixed(2)} {result.currency}</strong>
                     </>
                 )}
-            </p>
-        </form>
+            </Result>
+        </StyledForm>
     );
 };
 

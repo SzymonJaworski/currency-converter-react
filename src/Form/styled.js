@@ -1,17 +1,17 @@
-.form {
+import styled from "styled-components";
+
+export const StyledForm = styled.form`
     margin: 20px 0;
-}
+`;
 
-
-.form__labelText {
+export const LabelText = styled.span`
     display: inline-block;
     width: 150px;
     font-size: 18px;
     font-weight: 500;
-}
+`;
 
-
-.form__field {
+export const Field = styled.input`
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -19,16 +19,14 @@
     width: 100%;
     max-width: 250px;
     margin: 5px;
-}
 
+    &:focus {
+        border: 2px solid hwb(218 27% 44%);
+        outline: none;
+    }
+`;
 
-.form__field:focus {
-    border: 2px solid hwb(218 27% 44%);
-    outline: none;
-}
-
-
-.form__button {
+export const Button = styled.button`
     width: 100%;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -40,25 +38,22 @@
     padding: 12px;
     cursor: pointer;
     transition: background 0.3s;
-}
 
+    &:hover {
+        background: hwb(218 27% 34%);
+    }
+`;
 
-.form__button:hover {
-    background: hwb(218 27% 34%);
-}
-
-
-.form__score {
+export const Result = styled.p`
     text-align: center;
     font-size: 22px;
     margin: 20px 0;
     min-height: 24px;
-}
+`;
 
-
-.form__info {
+export const Info = styled.p`
     text-align: center;
     font-size: 15px;
     color: #444;
     margin-top: 20px;
-}
+`;
