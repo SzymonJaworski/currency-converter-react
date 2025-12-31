@@ -18,7 +18,7 @@ export const Field = styled.input`
     border-radius: 5px;
     width: 100%;
     max-width: 250px;
-    margin: 5px;
+    margin: 10px;
 
     &:focus {
         border: 2px solid hwb(218 27% 44%);
