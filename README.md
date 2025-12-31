@@ -1,24 +1,28 @@
-# Currency Converter - React
+# Currency Converter
 
-A simple and functional currency converter built with **React**. The application allows users to convert PLN (Polish Złoty) into popular currencies like EUR, USD, GBP, and CHF based on current exchange rates.
-
-
-### Key Features:
-* Real-time calculation of PLN to selected currencies.
-* Dynamic result formatting.
-* Fully responsive design (**RWD**) optimized for mobile devices.
-* Clean and organized code following the **BEM methodology**.
+A modern, real-time currency exchange application. This project demonstrates advanced React patterns, including custom hooks and asynchronous data fetching.
 
 
-### Technologies Used:
-* **React.js** (Functional Components & Hooks)
-* **JavaScript** (ES6+)
-* **CSS3** (Flexbox, Grid, Media Queries)
-* **BEM** Methodology
+## ✨ Features
+* **Live Exchange Rates**: Fetches real-time data from `CurrencyAPI` to ensure accurate conversion.
+* **Custom Hooks**: 
+    - `useRatesData`: Manages the entire asynchronous logic for fetching rates, including loading and error states.
+    - `useCurrentDate`: Handles a real-time clock that updates every second.
+* **State Management**: Robust handling of different application states (Loading, Success, and Failure).
+* **Responsive Design**: Fully functional and aesthetically pleasing on both mobile and desktop devices.
+* **Styled Components**: Clean and maintainable CSS-in-JS architecture.
+
+## 🛠️ Built With
+* **React** (Functional Components)
+* **Styled Components** (Custom UI and layout)
+* **React Hooks** (`useState`, `useEffect`, and custom hooks)
+* **Asynchronous JavaScript** (Promises, Async/Await)
+* **CurrencyAPI** (External data source)
 
 
 ##  What's inside?
-![Animation](https://github.com/user-attachments/assets/4c182e39-84c7-4566-8ffe-23c94c45f7f3)
+![Animation](https://github.com/user-attachments/assets/1acdeaf2-f4bc-4e36-b7e2-5a26f094179f)
+
 
 
 ## Demo
