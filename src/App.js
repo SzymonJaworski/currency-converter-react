@@ -14,9 +14,6 @@ function App() {
           <Clock /> { }
           <Header title="Przelicznik walut" />
           <Form />
-          <Info>
-            według średniego kursu NBP z dn. 14.11.2025
-          </Info>
         </main>
       </Container>
     </>

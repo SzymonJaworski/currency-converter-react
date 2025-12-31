@@ -57,3 +57,13 @@ export const Info = styled.p`
     color: #444;
     margin-top: 20px;
 `;
+
+export const Loading = styled.p`
+    color: #004d40;
+    text-align: center;
+`;
+
+export const Failure = styled.p`
+    color: #c62828;
+    text-align: center;
+`;

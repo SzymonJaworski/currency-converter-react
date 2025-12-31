@@ -1,57 +1,82 @@
 import React, { useState } from 'react';
-import { StyledForm, LabelText, Field, Button, Result } from "./styled";
+import { StyledForm, LabelText, Field, Button, Result, Loading, Failure, Info } from "./styled";
+import { useRatesData } from "../useRatesData";
 
 const Form = () => {
     const [amount, setAmount] = useState("");
     const [currency, setCurrency] = useState("EUR");
     const [result, setResult] = useState(null);
 
-    const rates = {
-        EUR: 4.2274,
-        USD: 3.6376,
-        GBP: 4.7854,
-        CHF: 4.5918,
-    };
+    const { rates, state, date } = useRatesData();
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-        const score = amount / rates[currency];
-
+    const calculateResult = (amount, currency) => {
+        const rate = rates[currency].value;
         setResult({
             sourceAmount: +amount,
-            targetAmount: score,
+            targetAmount: amount * rate,
             currency,
         });
     };
 
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+        calculateResult(amount, currency);
+    };
+
+    if (state === "loading") {
+        return (
+            <StyledForm>
+                <Loading>
+                    Sekunda... Pobieram aktualne kursy walut z serwera. ⏳
+                </Loading>
+            </StyledForm>
+        );
+    }
+
+    if (state === "error") {
+        return (
+            <StyledForm>
+                <Failure>
+                    Hmm... Coś poszło nie tak. Sprawdź połączenie z internetem. ❌
+                </Failure>
+            </StyledForm>
+        );
+    }
+
     return (
         <StyledForm onSubmit={onFormSubmit}>
-            { }
-            <label>
-                <LabelText>Kwota(PLN)*</LabelText>
-                <Field
-                    value={amount}
-                    onChange={({ target }) => setAmount(target.value)}
-                    type="number"
-                    placeholder="Wprowadź kwotę"
-                    required
-                    step="0.01"
-                />
-            </label>
-            <label>
-                <LabelText>Wybierz walutę</LabelText>
-                <Field
-                    as="select"
-                    value={currency}
-                    onChange={({ target }) => setCurrency(target.value)}
-                >
-                    <option value="EUR">EUR - Unia Europejska</option>
-                    <option value="USD">USD - USA</option>
-                    <option value="GBP">GBP - W.Brytania</option>
-                    <option value="CHF">CHF - Szwajcaria</option>
-                </Field>
-            </label>
-            <Button>Sprawdź kurs wymiany</Button>
+            <p>
+                <label>
+                    <LabelText>Kwota(PLN)*</LabelText>
+                    <Field
+                        value={amount}
+                        onChange={({ target }) => setAmount(target.value)}
+                        type="number"
+                        placeholder="Wprowadź kwotę"
+                        required
+                        step="0.01"
+                    />
+                </label>
+            </p>
+            <p>
+                <label>
+                    <LabelText>Wybierz walutę</LabelText>
+                    <Field
+                        as="select"
+                        value={currency}
+                        onChange={({ target }) => setCurrency(target.value)}
+                    >
+                        {Object.keys(rates).map((currencyShort) => (
+                            <option key={currencyShort} value={currencyShort}>
+                                {currencyShort}
+                            </option>
+                        ))}
+                    </Field>
+                </label>
+            </p>
+            <p>
+                <Button>Przelicz</Button>
+            </p>
             <Result>
                 {result && (
                     <>
@@ -60,6 +85,10 @@ const Form = () => {
                     </>
                 )}
             </Result>
+            <Info>
+                Kursy walut pobierane są z serwisu currencyapi.com. <br />
+                Aktualne na dzień: <strong>{new Date(date).toLocaleDateString("pl-PL")}</strong>
+            </Info>
         </StyledForm>
     );
 };
