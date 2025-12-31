@@ -26,37 +26,32 @@ const Form = () => {
 
     return (
         <StyledForm onSubmit={onFormSubmit}>
-            <p>
-                <label>
-                    <LabelText>Kwota(PLN)*</LabelText>
-                    <Field
-                        value={amount}
-                        onChange={({ target }) => setAmount(target.value)}
-                        type="number"
-                        placeholder="Wprowadź kwotę"
-                        required
-                        step="0.01"
-                    />
-                </label>
-            </p>
-            <p>
-                <label>
-                    <LabelText>Wybierz walutę</LabelText>
-                    <Field
-                        as="select"
-                        value={currency}
-                        onChange={({ target }) => setCurrency(target.value)}
-                    >
-                        <option value="EUR">EUR - Unia Europejska</option>
-                        <option value="USD">USD - USA</option>
-                        <option value="GBP">GBP - W.Brytania</option>
-                        <option value="CHF">CHF - Szwajcaria</option>
-                    </Field>
-                </label>
-            </p>
-            <p>
-                <Button>Sprawdź kurs wymiany</Button>
-            </p>
+            { }
+            <label>
+                <LabelText>Kwota(PLN)*</LabelText>
+                <Field
+                    value={amount}
+                    onChange={({ target }) => setAmount(target.value)}
+                    type="number"
+                    placeholder="Wprowadź kwotę"
+                    required
+                    step="0.01"
+                />
+            </label>
+            <label>
+                <LabelText>Wybierz walutę</LabelText>
+                <Field
+                    as="select"
+                    value={currency}
+                    onChange={({ target }) => setCurrency(target.value)}
+                >
+                    <option value="EUR">EUR - Unia Europejska</option>
+                    <option value="USD">USD - USA</option>
+                    <option value="GBP">GBP - W.Brytania</option>
+                    <option value="CHF">CHF - Szwajcaria</option>
+                </Field>
+            </label>
+            <Button>Sprawdź kurs wymiany</Button>
             <Result>
                 {result && (
                     <>

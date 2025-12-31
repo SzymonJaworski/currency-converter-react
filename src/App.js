@@ -11,7 +11,7 @@ function App() {
       <GlobalStyle />
       <Container>
         <main>
-          <Clock />
+          <Clock /> { }
           <Header title="Przelicznik walut" />
           <Form />
           <Info>
