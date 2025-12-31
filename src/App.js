@@ -3,7 +3,6 @@ import Header from "./Header";
 import Form from "./Form";
 import Clock from "./Clock";
 import { GlobalStyle } from "./GlobalStyle";
-import { Info } from "./Form/styled";
 
 function App() {
   return (
